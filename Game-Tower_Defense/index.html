@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Tower Defense</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #2c3e50;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+            color: #ecf0f1;
+        }
+        
+        #gameContainer {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        #gameCanvas {
+            border: 3px solid #34495e;
+            background: #27ae60;
+            cursor: crosshair;
+        }
+        
+        #levelSelect {
+            background: #34495e;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .level-button {
+            display: inline-block;
+            padding: 15px 20px;
+            margin: 5px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            min-width: 120px;
+        }
+        
+        .level-button:hover {
+            background: #2980b9;
+        }
+        
+        .level-button.selected {
+            background: #e74c3c;
+        }
+        
+        #ui {
+            background: #34495e;
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 200px;
+        }
+        
+        .tower-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .tower-button:hover {
+            background: #2980b9;
+        }
+        
+        .tower-button:disabled {
+            background: #7f8c8d;
+            cursor: not-allowed;
+        }
+        
+        #gameInfo {
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        #controls {
+            margin-top: 20px;
+        }
+        
+        .control-button {
+            padding: 8px 16px;
+            margin: 5px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .control-button:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <h1>🏰 Emoji Tower Defense 🏰</h1>
+    
+    <div id="levelSelect">
+        <h3>🗺️ Choose Your Battlefield</h3>
+        <button class="level-button selected" onclick="selectLevel('grass')">
+            🌱 Monkey Meadow
+        </button>
+        <button class="level-button" onclick="selectLevel('mountains')">
+            🏔️ Alpine Run
+        </button>
+        <button class="level-button" onclick="selectLevel('desert')">
+            🏜️ Oasis Loop
+        </button>
+        <button class="level-button" onclick="selectLevel('snow')">
+            ❄️ Frozen Over
+        </button>
+        <button class="level-button" onclick="selectLevel('ocean')">
+            🌊 Archipelago
+        </button>
+    </div>
+    
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        
+        <div id="ui">
+            <div id="gameInfo">
+                <div class="info-item">💰 Gold: <span id="gold">100</span></div>
+                <div class="info-item">❤️ Lives: <span id="lives">20</span></div>
+                <div class="info-item">🌊 Wave: <span id="wave">1</span>/<span id="maxWaves">10</span></div>
+                <div class="info-item">👹 Enemies: <span id="enemies">0</span>/<span id="totalEnemies">10</span></div>
+                <div class="info-item">🎯 Remaining: <span id="enemiesRemaining">10</span></div>
+                <div class="info-item" id="countdownInfo" style="display: none; color: #f39c12; font-weight: bold;">
+                    ⏰ Next Wave: <span id="countdown">5</span>s
+                </div>
+            </div>
+            
+            <h3>🏗️ Build Towers</h3>
+            <button class="tower-button" onclick="selectTower('archer')" id="archerBtn">
+                🏹 Archer Tower (20💰)
+            </button>
+            <button class="tower-button" onclick="selectTower('cannon')" id="cannonBtn">
+                💣 Cannon Tower (40💰)
+            </button>
+            <button class="tower-button" onclick="selectTower('magic')" id="magicBtn">
+                🔮 Magic Tower (60💰)
+            </button>
+            <button class="tower-button" onclick="selectTower('ice')" id="iceBtn">
+                ❄️ Ice Tower (50💰)
+            </button>
+            <button class="tower-button" onclick="selectTower('lightning')" id="lightningBtn">
+                ⚡ Lightning Tower (80💰)
+            </button>
+            
+            <div id="controls">
+                <button class="control-button" onclick="startWave()">🚀 Start Wave</button>
+                <button class="control-button" onclick="clearPath()">🧹 Clear Path</button>
+                <button class="control-button" onclick="resetGame()">🔄 Reset Game</button>
+            </div>
+            
+            <div id="selectedTowerInfo" style="margin-top: 20px; padding: 10px; background: #2c3e50; border-radius: 5px; display: none;">
+                <h4 style="margin: 0 0 10px 0; color: #ecf0f1;">Selected Tower</h4>
+                <div id="towerDetails"></div>
+                <button class="control-button" onclick="upgradeTower()" id="upgradeBtn" style="width: 100%; margin-top: 10px;">
+                    ⬆️ Upgrade Tower
+                </button>
+                <button class="control-button" onclick="sellTower()" id="sellBtn" style="width: 100%; margin-top: 5px; background: #e67e22;">
+                    💰 Sell Tower
+                </button>
+            </div>
+            
+            <div style="margin-top: 20px; font-size: 12px; line-height: 1.4;">
+                <p><strong>🎮 How to Play:</strong></p>
+                <p><strong>Building Towers:</strong></p>
+                <p>• Click a tower type button below</p>
+                <p>• Click on the map to place it</p>
+                <p>• Towers auto-attack enemies in range</p>
+                
+                <p><strong>🎯 Selecting & Upgrading:</strong></p>
+                <p>• <strong>Click any placed tower</strong> to select it</p>
+                <p>• Selected towers show upgrade options</p>
+                <p>• Upgrades increase damage, range & speed</p>
+                <p>• Each tower can be upgraded 3 times</p>
+                
+                <p><strong>💡 Strategy Tips:</strong></p>
+                <p>• Place towers away from the path</p>
+                <p>• Upgrade key towers for better defense</p>
+                <p>• Ice towers slow enemies down</p>
+                <p>• ⚡ Lightning towers chain to nearby enemies</p>
+                <p>• Later waves have tankier enemies (🦏🤖🐉👑)</p>
+                <p>• Enemy health & speed scale +15%/+10% per wave!</p>
+                <p>• Enemies spawn faster each wave!</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>

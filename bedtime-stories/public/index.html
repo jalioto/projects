@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Story Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Story Generator</h1>
+            <p>Create illustrated stories with AI</p>
+            <button id="refreshBgBtn" class="refresh-bg-btn" title="Change background image">🎨 New Background</button>
+        </header>
+
+        <main>
+            <!-- Story Generation Form -->
+            <section class="story-form">
+                <h2>Create a New Story</h2>
+                <form id="storyForm">
+                    <div class="input-group">
+                        <label for="age">Target Age:</label>
+                        <select id="age" name="age" required>
+                            <option value="">Select age range...</option>
+                            <option value="2-3">2-3 years old</option>
+                            <option value="4-5">4-5 years old</option>
+                            <option value="6-7">6-7 years old</option>
+                            <option value="8-10">8-10 years old</option>
+                            <option value="11-13">11-13 years old</option>
+                            <option value="14-16">14-16 years old</option>
+                            <option value="17+">17+ years old</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="prompt">Story Prompt:</label>
+                        <textarea 
+                            id="prompt" 
+                            name="prompt" 
+                            placeholder="Enter your story idea... (e.g., 'A brave mouse who dreams of becoming a knight')"
+                            required
+                        ></textarea>
+                    </div>
+                    <button type="submit" id="generateBtn">Generate Story</button>
+                </form>
+                
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p id="loadingText">Creating your story... This may take a few minutes.</p>
+                    <div id="progressInfo" class="progress-info hidden">
+                        <div class="progress-bar">
+                            <div id="progressFill" class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Story Display -->
+            <section id="storyDisplay" class="story-display hidden">
+                <div class="story-header">
+                    <h2 id="storyTitle"></h2>
+                    <div class="story-nav">
+                        <button id="prevPage" disabled>← Previous</button>
+                        <span id="pageInfo">Page 1 of 1</span>
+                        <button id="nextPage" disabled>Next →</button>
+                    </div>
+                </div>
+                
+                <div class="story-page">
+                    <div class="story-image">
+                        <img id="pageImage" alt="Story illustration" />
+                    </div>
+                    <div class="story-text">
+                        <p id="pageText"></p>
+                    </div>
+                </div>
+                
+                <div class="story-actions">
+                    <button id="newStoryBtn">Create New Story</button>
+                </div>
+            </section>
+
+            <!-- Previous Stories -->
+            <section class="previous-stories">
+                <h2>Previous Stories</h2>
+                <div id="storiesList" class="stories-list">
+                    <!-- Stories will be loaded here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Fullscreen Overlay -->
+    <div id="fullscreenOverlay" class="fullscreen-overlay">
+        <div class="fullscreen-content">
+            <button id="fullscreenClose" class="fullscreen-close">✕</button>
+            <div id="fullscreenInfo" class="fullscreen-info">Page 1 of 1</div>
+            
+            <button id="fullscreenPrev" class="fullscreen-nav prev" disabled>‹</button>
+            <button id="fullscreenNext" class="fullscreen-nav next" disabled>›</button>
+            
+            <div class="fullscreen-image">
+                <img id="fullscreenImage" alt="Story illustration" />
+            </div>
+            
+            <div class="fullscreen-text">
+                <p id="fullscreenText"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
