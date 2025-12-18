@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎭 Kid's Joke Generator 🎭</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎭 Kid's Joke Generator 🎭</h1>
+            <p>Get ready to laugh with kid-friendly jokes!</p>
+        </header>
+        
+        <main>
+            <div class="joke-container">
+                <div id="joke-display" class="joke-display">
+                    <p>Click the button below to get your first joke! 😄</p>
+                </div>
+                
+                <div class="loading" id="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Generating a funny joke for you...</p>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="generate-joke" class="joke-button">
+                    🎲 Get New Joke! 🎲
+                </button>
+                
+                <div class="joke-categories">
+                    <label for="category">Choose a category:</label>
+                    <select id="category">
+                        <option value="general">General Fun</option>
+                        <option value="animals">Animals</option>
+                        <option value="food">Food</option>
+                        <option value="school">School</option>
+                        <option value="knock-knock">Knock Knock</option>
+                    </select>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Made with ❤️ for kids who love to laugh!</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
