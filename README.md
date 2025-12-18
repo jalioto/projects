@@ -1,4 +1,4 @@
-# Abouta's Project Bundle
+# About Project Bundle
 
 This is a collection of various projects I've created for fun, to follow my imagination, and to explore whatever interests me at the time. Each folder represents a different adventure in coding and creativity.
 
