@@ -108,3 +108,6 @@ target/
 *.tar.gz
 *.rar
 *.7z
+
+# Virtual Environments
+.venv
