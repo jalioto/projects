@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Themed Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
+    <div class="container">
+        <h1>🎮 Themed Tic-Tac-Toe 🎮</h1>
+        
+        <div class="theme-selector">
+            <h2>Choose Your Theme:</h2>
+            <div class="theme-buttons">
+                <button class="theme-btn active" data-theme="animals">
+                    🐱 vs 🐶 Animals
+                </button>
+                <button class="theme-btn" data-theme="space">
+                    🚀 vs 👽 Space
+                </button>
+                <button class="theme-btn" data-theme="cartoon">
+                    🤖 vs 🦄 Cartoon
+                </button>
+            </div>
+        </div>
+
+        <div class="scoreboard">
+            <div class="score-card">
+                <div class="player-info">
+                    <span class="player-emoji" id="player1-emoji">🐱</span>
+                    <span class="player-name">Player 1</span>
+                </div>
+                <div class="score" id="player1-score">0</div>
+            </div>
+            <div class="vs-divider">VS</div>
+            <div class="score-card">
+                <div class="player-info">
+                    <span class="player-emoji" id="player2-emoji">🐶</span>
+                    <span class="player-name">Player 2</span>
+                </div>
+                <div class="score" id="player2-score">0</div>
+            </div>
+        </div>
+
+        <div class="game-info">
+            <div class="current-player">
+                <span id="current-player-text">Player 1's Turn</span>
+                <span id="current-player-emoji">🐱</span>
+            </div>
+        </div>
+
+        <div class="game-board" id="gameBoard">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+
+        <div class="game-controls">
+            <button id="nextGameBtn" class="next-game-btn">▶️ Next Game</button>
+            <button id="resetScoreBtn" class="reset-score-btn">🔄 Start Over</button>
+        </div>
+
+        <div class="winner-message" id="winnerMessage">
+            <div class="winner-content">
+                <div class="celebration">🎉</div>
+                <div id="winnerText"></div>
+                <div class="celebration">🎉</div>
+                <button id="nextGameBtnPopup" class="next-game-popup-btn">▶️ Next Game</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
