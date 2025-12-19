@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Showcase - Modern Web Magic</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cursor-follower"></div>
+    
+    <!-- Hero Section with Animated Background -->
+    <section class="hero">
+        <div class="animated-bg">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1 class="glitch-text" data-text="CSS SHOWCASE">CSS SHOWCASE</h1>
+            <p class="typewriter">Exploring the boundaries of modern CSS</p>
+            <button class="morphing-btn">Explore Magic</button>
+        </div>
+    </section>
+
+    <!-- CSS Variables & Color Themes -->
+    <section class="theme-section">
+        <h2 class="section-title">Dynamic Theming</h2>
+        <div class="theme-switcher">
+            <button class="theme-btn active" data-theme="default">Default</button>
+            <button class="theme-btn" data-theme="neon">Neon</button>
+            <button class="theme-btn" data-theme="sunset">Sunset</button>
+        </div>
+        <div class="theme-demo">
+            <div class="theme-card">
+                <h3>Dynamic Colors</h3>
+                <p>CSS Custom Properties in action</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glass Morphism Section -->
+    <section class="glass-section">
+        <div class="glass-card">
+            <h2>Glass Morphism</h2>
+            <p>Beautiful frosted glass effects with backdrop-filter</p>
+            <div class="glass-buttons">
+                <button class="glass-btn">Primary</button>
+                <button class="glass-btn secondary">Secondary</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Transforms & Animations -->
+    <section class="transforms-section">
+        <h2 class="section-title">3D Transforms</h2>
+        <div class="cube-container">
+            <div class="cube">
+                <div class="face front">Front</div>
+                <div class="face back">Back</div>
+                <div class="face right">Right</div>
+                <div class="face left">Left</div>
+                <div class="face top">Top</div>
+                <div class="face bottom">Bottom</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Grid Art -->
+    <section class="grid-art-section">
+        <h2 class="section-title">CSS Grid Art</h2>
+        <div class="grid-art">
+            <div class="grid-item item-1"></div>
+            <div class="grid-item item-2"></div>
+            <div class="grid-item item-3"></div>
+            <div class="grid-item item-4"></div>
+            <div class="grid-item item-5"></div>
+            <div class="grid-item item-6"></div>
+            <div class="grid-item item-7"></div>
+            <div class="grid-item item-8"></div>
+            <div class="grid-item item-9"></div>
+        </div>
+    </section>
+
+    <!-- Clip Path Animations -->
+    <section class="clip-path-section">
+        <h2 class="section-title">Clip Path Magic</h2>
+        <div class="clip-shapes">
+            <div class="clip-shape polygon"></div>
+            <div class="clip-shape circle"></div>
+            <div class="clip-shape triangle"></div>
+        </div>
+    </section>
+
+    <!-- Scroll Animations -->
+    <section class="scroll-section">
+        <h2 class="section-title">Scroll Animations</h2>
+        <button class="test-animation-btn" onclick="testScrollAnimations()">Test Animations</button>
+        <div class="scroll-items">
+            <div class="scroll-item fade-in">Fade In</div>
+            <div class="scroll-item slide-left">Slide Left</div>
+            <div class="scroll-item scale-up">Scale Up</div>
+            <div class="scroll-item rotate-in">Rotate In</div>
+        </div>
+    </section>
+
+    <!-- CSS Filters & Blend Modes -->
+    <section class="filters-section">
+        <h2 class="section-title">Filters & Blend Modes</h2>
+        <div class="filter-gallery">
+            <div class="filter-item blur">Blur</div>
+            <div class="filter-item hue-rotate">Hue Rotate</div>
+            <div class="filter-item contrast">Contrast</div>
+            <div class="filter-item saturate">Saturate</div>
+        </div>
+    </section>
+
+    <!-- CSS Container Queries -->
+    <section class="container-queries-section">
+        <h2 class="section-title">Container Queries</h2>
+        <div class="container-demo">
+            <div class="resizable-container">
+                <div class="container-card">
+                    <h3>Responsive Card</h3>
+                    <p>Resize me and watch the layout adapt!</p>
+                    <div class="card-buttons">
+                        <button>Action</button>
+                        <button>More</button>
+                    </div>
+                </div>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Subgrid & Advanced Layouts -->
+    <section class="subgrid-section">
+        <h2 class="section-title">Advanced Grid Layouts</h2>
+        <div class="subgrid-demo">
+            <div class="card-grid">
+                <div class="card card-1">
+                    <h3>Card Title 1</h3>
+                    <p>This is some content that might be longer than others.</p>
+                    <button>Action</button>
+                </div>
+                <div class="card card-2">
+                    <h3>Much Longer Card Title 2</h3>
+                    <p>Short content.</p>
+                    <button>Action</button>
+                </div>
+                <div class="card card-3">
+                    <h3>Card 3</h3>
+                    <p>Medium length content that demonstrates how subgrid aligns elements perfectly.</p>
+                    <button>Action</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Scroll-Driven Animations -->
+    <section class="scroll-driven-section">
+        <h2 class="section-title">Scroll-Driven Animations</h2>
+        <div class="scroll-progress-container">
+            <div class="scroll-progress-bar"></div>
+            <div class="scroll-content">
+                <div class="scroll-card">
+                    <h3>Scroll Progress</h3>
+                    <p>Watch the progress bar above fill as you scroll!</p>
+                </div>
+                <div class="parallax-layers">
+                    <div class="parallax-layer layer-1"></div>
+                    <div class="parallax-layer layer-2"></div>
+                    <div class="parallax-layer layer-3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Anchor Positioning -->
+    <section class="anchor-positioning-section">
+        <h2 class="section-title">Anchor Positioning</h2>
+        <div class="anchor-demo">
+            <button class="anchor-trigger" id="anchor-btn">Hover Me!</button>
+            <div class="floating-tooltip">
+                <div class="tooltip-content">
+                    <h4>Dynamic Tooltip</h4>
+                    <p>Positioned relative to the button using CSS anchor positioning!</p>
+                </div>
+                <div class="tooltip-arrow"></div>
+            </div>
+            <div class="anchor-connections">
+                <div class="connection-point point-1" data-anchor="point1"></div>
+                <div class="connection-point point-2" data-anchor="point2"></div>
+                <div class="connection-point point-3" data-anchor="point3"></div>
+                <svg class="connection-lines">
+                    <path class="connection-line" d="M 0 0 Q 150 100 300 0"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS View Transitions -->
+    <section class="view-transitions-section">
+        <h2 class="section-title">View Transitions</h2>
+        <div class="transition-demo">
+            <div class="image-gallery">
+                <div class="gallery-item active" data-image="1">
+                    <div class="image-placeholder img-1"></div>
+                    <h4>Image 1</h4>
+                </div>
+                <div class="gallery-item" data-image="2">
+                    <div class="image-placeholder img-2"></div>
+                    <h4>Image 2</h4>
+                </div>
+                <div class="gallery-item" data-image="3">
+                    <div class="image-placeholder img-3"></div>
+                    <h4>Image 3</h4>
+                </div>
+            </div>
+            <div class="expanded-view">
+                <div class="expanded-image">
+                    <div class="expanded-placeholder img-1"></div>
+                    <button class="close-btn">&times;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Houdini Paint API -->
+    <section class="houdini-section">
+        <h2 class="section-title">CSS Houdini Paint API</h2>
+        <div class="houdini-demo">
+            <div class="paint-worklet-card">
+                <h3>Custom Paint Worklets</h3>
+                <p>Dynamic patterns generated with CSS Paint API</p>
+                <div class="paint-examples">
+                    <div class="paint-item ripple-pattern"></div>
+                    <div class="paint-item wave-pattern"></div>
+                    <div class="paint-item noise-pattern"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Logical Properties & Writing Modes -->
+    <section class="logical-properties-section">
+        <h2 class="section-title">Logical Properties & Writing Modes</h2>
+        <div class="writing-modes-demo">
+            <div class="writing-mode-card horizontal-tb">
+                <h3>Horizontal TB</h3>
+                <p>Traditional left-to-right, top-to-bottom writing</p>
+                <button class="logical-btn">Action</button>
+            </div>
+            <div class="writing-mode-card vertical-rl">
+                <h3>Vertical RL</h3>
+                <p>Right-to-left vertical writing mode</p>
+                <button class="logical-btn">Action</button>
+            </div>
+            <div class="writing-mode-card vertical-lr">
+                <h3>Vertical LR</h3>
+                <p>Left-to-right vertical writing mode</p>
+                <button class="logical-btn">Action</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Masking & Complex Shapes -->
+    <section class="masking-section">
+        <h2 class="section-title">CSS Masking & Complex Shapes</h2>
+        <div class="masking-demo">
+            <div class="mask-gallery">
+                <div class="mask-item gradient-mask">
+                    <div class="mask-content">
+                        <h3>Gradient Mask</h3>
+                        <p>Smooth fade effects with CSS masks</p>
+                    </div>
+                </div>
+                <div class="mask-item svg-mask">
+                    <div class="mask-content">
+                        <h3>SVG Mask</h3>
+                        <p>Complex shapes and patterns</p>
+                    </div>
+                </div>
+                <div class="mask-item text-mask">
+                    <div class="mask-content">
+                        <h3>Text Mask</h3>
+                        <p>Typography as masking element</p>
+                    </div>
+                </div>
+            </div>
+            <svg style="position: absolute; width: 0; height: 0;">
+                <defs>
+                    <mask id="hexagon-mask">
+                        <polygon fill="white" points="50,0 93.3,25 93.3,75 50,100 6.7,75 6.7,25"/>
+                    </mask>
+                    <mask id="star-mask">
+                        <polygon fill="white" points="50,0 61,35 98,35 68,57 79,91 50,70 21,91 32,57 2,35 39,35"/>
+                    </mask>
+                </defs>
+            </svg>
+        </div>
+    </section>
+
+    <!-- CSS Motion Path & Advanced Animations -->
+    <section class="motion-path-section">
+        <h2 class="section-title">CSS Motion Path</h2>
+        <div class="motion-demo">
+            <div class="path-container">
+                <svg class="motion-path-svg" viewBox="0 0 800 400">
+                    <path id="motion-path" d="M 50 200 Q 200 50 400 200 T 750 200" 
+                          stroke="var(--primary-color)" stroke-width="3" fill="none" stroke-dasharray="10,5"/>
+                </svg>
+                <div class="moving-element rocket">🚀</div>
+                <div class="moving-element car">🚗</div>
+                <div class="moving-element plane">✈️</div>
+            </div>
+            <div class="motion-controls">
+                <button class="motion-btn" data-speed="slow">Slow</button>
+                <button class="motion-btn active" data-speed="normal">Normal</button>
+                <button class="motion-btn" data-speed="fast">Fast</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Color Functions & Advanced Gradients -->
+    <section class="color-functions-section">
+        <h2 class="section-title">Advanced Color Functions</h2>
+        <div class="color-demo">
+            <div class="color-palette">
+                <div class="color-card oklch-colors">
+                    <h3>OKLCH Colors</h3>
+                    <p>Perceptually uniform color space</p>
+                    <div class="color-swatches">
+                        <div class="swatch oklch-1"></div>
+                        <div class="swatch oklch-2"></div>
+                        <div class="swatch oklch-3"></div>
+                        <div class="swatch oklch-4"></div>
+                    </div>
+                </div>
+                <div class="color-card color-mix">
+                    <h3>Color Mix Function</h3>
+                    <p>Dynamic color blending</p>
+                    <div class="mix-demo">
+                        <div class="mix-slider-container">
+                            <input type="range" class="mix-slider" min="0" max="100" value="50">
+                            <div class="mix-result"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="color-card conic-gradients">
+                    <h3>Conic Gradients</h3>
+                    <p>Radial color transitions</p>
+                    <div class="conic-examples">
+                        <div class="conic-item rainbow"></div>
+                        <div class="conic-item pie-chart"></div>
+                        <div class="conic-item spiral"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS @property & Custom Properties Animation -->
+    <section class="custom-properties-section">
+        <h2 class="section-title">CSS @property Animation</h2>
+        <div class="property-demo">
+            <div class="animated-property-card">
+                <h3>Animatable Custom Properties</h3>
+                <p>Watch gradients and values animate smoothly</p>
+                <div class="property-examples">
+                    <div class="property-item gradient-animate"></div>
+                    <div class="property-item number-animate">
+                        <span class="animated-number">0</span>%
+                    </div>
+                    <div class="property-item color-animate"></div>
+                </div>
+                <button class="trigger-animation">Animate Properties</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Cascade Layers & Advanced Selectors -->
+    <section class="cascade-layers-section">
+        <h2 class="section-title">Cascade Layers & Advanced Selectors</h2>
+        <div class="layers-demo">
+            <div class="layer-visualization">
+                <div class="layer base-layer">
+                    <h4>Base Layer</h4>
+                    <p>Foundation styles</p>
+                </div>
+                <div class="layer theme-layer">
+                    <h4>Theme Layer</h4>
+                    <p>Theme overrides</p>
+                </div>
+                <div class="layer component-layer">
+                    <h4>Component Layer</h4>
+                    <p>Component styles</p>
+                </div>
+                <div class="layer utility-layer">
+                    <h4>Utility Layer</h4>
+                    <p>Utility classes</p>
+                </div>
+            </div>
+            <div class="selector-showcase">
+                <div class="selector-demo">
+                    <div class="has-demo">
+                        <h4>:has() Selector</h4>
+                        <div class="parent-container">
+                            <input type="checkbox" id="has-checkbox">
+                            <label for="has-checkbox">Toggle child state</label>
+                            <div class="child-element">I change when checkbox is checked!</div>
+                        </div>
+                    </div>
+                    <div class="where-demo">
+                        <h4>:where() & :is() Selectors</h4>
+                        <div class="specificity-demo">
+                            <button class="btn primary">Primary</button>
+                            <button class="btn secondary">Secondary</button>
+                            <button class="btn accent">Accent</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Nesting & Modern Syntax -->
+    <section class="nesting-section">
+        <h2 class="section-title">CSS Nesting & Modern Syntax</h2>
+        <div class="nesting-demo">
+            <div class="nested-card">
+                <h3>Native CSS Nesting</h3>
+                <p>Sass-like syntax built into CSS</p>
+                <div class="nested-content">
+                    <div class="nested-item">
+                        <span>Hover me</span>
+                        <div class="nested-tooltip">Nested styles!</div>
+                    </div>
+                    <div class="nested-item">
+                        <span>Click me</span>
+                        <div class="nested-dropdown">
+                            <div class="dropdown-item">Option 1</div>
+                            <div class="dropdown-item">Option 2</div>
+                            <div class="dropdown-item">Option 3</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="syntax-example">
+                    <pre><code>.card {
+  background: blue;
+  
+  &:hover {
+    background: red;
+    
+    .nested {
+      transform: scale(1.1);
+    }
+  }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Trigonometric Functions & Math -->
+    <section class="math-functions-section">
+        <h2 class="section-title">CSS Math & Trigonometric Functions</h2>
+        <div class="math-demo">
+            <div class="trig-visualization">
+                <div class="circle-demo">
+                    <div class="rotating-elements">
+                        <div class="math-element" style="--index: 0;">sin</div>
+                        <div class="math-element" style="--index: 1;">cos</div>
+                        <div class="math-element" style="--index: 2;">tan</div>
+                        <div class="math-element" style="--index: 3;">π</div>
+                        <div class="math-element" style="--index: 4;">∞</div>
+                        <div class="math-element" style="--index: 5;">∑</div>
+                    </div>
+                    <div class="center-point"></div>
+                </div>
+                <div class="wave-function">
+                    <div class="function-indicator" id="function-indicator">sin(x)</div>
+                    <div class="wave-line"></div>
+                    <div class="wave-particles">
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="math-controls">
+                <div class="function-selector">
+                    <button class="math-btn active" data-function="sin" onclick="testMathButton('sin')">sin(x)</button>
+                    <button class="math-btn" data-function="cos" onclick="testMathButton('cos')">cos(x)</button>
+                    <button class="math-btn" data-function="tan" onclick="testMathButton('tan')">tan(x)</button>
+                </div>
+                <button class="test-math-btn" onclick="testMathFunctions()">Demo All Functions</button>
+                <button class="start-animation-btn" onclick="forceStartAnimation()">Start Animation</button>
+                <button class="debug-btn" onclick="checkFunctionNameElement()">Debug Names</button>
+                <div class="math-output">
+                    <div class="calculated-values">
+                        <div class="value-display">
+                            <span class="label">Function:</span>
+                            <span class="function-name" id="function-name">sin(x)</span>
+                        </div>
+                        <div class="value-display">
+                            <span class="label">Value:</span>
+                            <span class="value" id="math-value">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Scroll Snap & Advanced Scrolling -->
+    <section class="scroll-snap-section">
+        <h2 class="section-title">CSS Scroll Snap & Advanced Scrolling</h2>
+        <div class="scroll-demo">
+            <div class="snap-container horizontal-snap">
+                <div class="snap-item item-1">
+                    <h3>Horizontal Snap</h3>
+                    <p>Scroll horizontally with snap points</p>
+                </div>
+                <div class="snap-item item-2">
+                    <h3>Smooth Snapping</h3>
+                    <p>Each section snaps into place</p>
+                </div>
+                <div class="snap-item item-3">
+                    <h3>Perfect Alignment</h3>
+                    <p>CSS scroll-snap-type magic</p>
+                </div>
+                <div class="snap-item item-4">
+                    <h3>Native Behavior</h3>
+                    <p>No JavaScript required!</p>
+                </div>
+            </div>
+            <div class="scroll-indicators">
+                <div class="indicator active"></div>
+                <div class="indicator"></div>
+                <div class="indicator"></div>
+                <div class="indicator"></div>
+            </div>
+            <button class="test-scroll-btn" onclick="testScrollSnap()">Test Scroll Snap</button>
+            <div class="vertical-snap-demo">
+                <h4>Vertical Scroll Snap</h4>
+                <p style="margin: 0.5rem 0 1rem; opacity: 0.8;">Scroll or click items to snap</p>
+                <button class="test-vertical-snap-btn" onclick="testVerticalSnap()">Test Vertical Snap</button>
+                <div class="vertical-snap-container">
+                    <div class="vertical-snap-item">
+                        <div class="snap-content">
+                            <h5>Section A</h5>
+                            <p>Vertical snapping in action</p>
+                        </div>
+                    </div>
+                    <div class="vertical-snap-item">
+                        <div class="snap-content">
+                            <h5>Section B</h5>
+                            <p>Smooth vertical transitions</p>
+                        </div>
+                    </div>
+                    <div class="vertical-snap-item">
+                        <div class="snap-content">
+                            <h5>Section C</h5>
+                            <p>Perfect scroll alignment</p>
+                        </div>
+                    </div>
+                    <div class="vertical-snap-item">
+                        <div class="snap-content">
+                            <h5>Section D</h5>
+                            <p>Keep scrolling down</p>
+                        </div>
+                    </div>
+                    <div class="vertical-snap-item">
+                        <div class="snap-content">
+                            <h5>Section E</h5>
+                            <p>Almost at the end</p>
+                        </div>
+                    </div>
+                    <div class="vertical-snap-item">
+                        <div class="snap-content">
+                            <h5>Section F</h5>
+                            <p>Last section - scroll back up!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Backdrop Filters & Advanced Blur Effects -->
+    <section class="backdrop-filters-section">
+        <h2 class="section-title">Advanced Backdrop Filters</h2>
+        <div class="backdrop-demo">
+            <div class="backdrop-background">
+                <div class="colorful-shapes">
+                    <div class="bg-shape shape-a"></div>
+                    <div class="bg-shape shape-b"></div>
+                    <div class="bg-shape shape-c"></div>
+                    <div class="bg-shape shape-d"></div>
+                </div>
+            </div>
+            <div class="backdrop-cards">
+                <div class="backdrop-card blur-card">
+                    <h3>Blur Filter</h3>
+                    <p>backdrop-filter: blur(20px)</p>
+                    <button class="backdrop-btn">Interact</button>
+                </div>
+                <div class="backdrop-card saturate-card">
+                    <h3>Saturate Filter</h3>
+                    <p>backdrop-filter: saturate(200%)</p>
+                    <button class="backdrop-btn">Interact</button>
+                </div>
+                <div class="backdrop-card invert-card">
+                    <h3>Invert Filter</h3>
+                    <p>backdrop-filter: invert(100%)</p>
+                    <button class="backdrop-btn">Interact</button>
+                </div>
+                <div class="backdrop-card contrast-card">
+                    <h3>Contrast Filter</h3>
+                    <p>backdrop-filter: contrast(150%)</p>
+                    <button class="backdrop-btn">Interact</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Transforms & 3D Perspective -->
+    <section class="advanced-transforms-section">
+        <h2 class="section-title">Advanced 3D Transforms</h2>
+        <div class="transforms-demo">
+            <div class="transform-stage">
+                <div class="floating-cube-container">
+                    <div class="floating-cube">
+                        <div class="cube-face front">FRONT</div>
+                        <div class="cube-face back">BACK</div>
+                        <div class="cube-face right">RIGHT</div>
+                        <div class="cube-face left">LEFT</div>
+                        <div class="cube-face top">TOP</div>
+                        <div class="cube-face bottom">BOTTOM</div>
+                    </div>
+                </div>
+                <div class="transform-controls">
+                    <button class="transform-btn" data-transform="rotateX">Rotate X</button>
+                    <button class="transform-btn" data-transform="rotateY">Rotate Y</button>
+                    <button class="transform-btn" data-transform="rotateZ">Rotate Z</button>
+                    <button class="transform-btn" data-transform="scale">Scale</button>
+                    <button class="transform-btn" data-transform="reset">Reset</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Grid Template Areas & Complex Layouts -->
+    <section class="grid-areas-section">
+        <h2 class="section-title">CSS Grid Template Areas</h2>
+        <div class="grid-areas-demo">
+            <div class="layout-switcher">
+                <button class="layout-btn active" data-layout="desktop">Desktop Layout</button>
+                <button class="layout-btn" data-layout="tablet">Tablet Layout</button>
+                <button class="layout-btn" data-layout="mobile">Mobile Layout</button>
+            </div>
+            <div class="responsive-grid desktop-layout">
+                <div class="grid-area header">Header</div>
+                <div class="grid-area sidebar">Sidebar</div>
+                <div class="grid-area main">Main Content</div>
+                <div class="grid-area aside">Aside</div>
+                <div class="grid-area footer">Footer</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Custom Animations & Keyframes -->
+    <section class="custom-animations-section">
+        <h2 class="section-title">Custom Animation Library</h2>
+        <div class="animations-demo">
+            <div class="animation-gallery">
+                <div class="animation-item bounce-animation">
+                    <div class="animation-element">Bounce</div>
+                </div>
+                <div class="animation-item pulse-animation">
+                    <div class="animation-element">Pulse</div>
+                </div>
+                <div class="animation-item shake-animation">
+                    <div class="animation-element">Shake</div>
+                </div>
+                <div class="animation-item flip-animation">
+                    <div class="animation-element">Flip</div>
+                </div>
+                <div class="animation-item wobble-animation">
+                    <div class="animation-element">Wobble</div>
+                </div>
+                <div class="animation-item swing-animation">
+                    <div class="animation-element">Swing</div>
+                </div>
+            </div>
+            <div class="animation-controls">
+                <button class="animation-control-btn" onclick="playAllAnimations()">Play All</button>
+                <button class="animation-control-btn" onclick="pauseAllAnimations()">Pause All</button>
+                <button class="animation-control-btn" onclick="resetAllAnimations()">Reset All</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Flexbox Advanced Patterns -->
+    <section class="flexbox-patterns-section">
+        <h2 class="section-title">Advanced Flexbox Patterns</h2>
+        <div class="flexbox-demo">
+            <div class="pattern-selector">
+                <button class="pattern-btn active" data-pattern="holy-grail">Holy Grail</button>
+                <button class="pattern-btn" data-pattern="card-layout">Card Layout</button>
+                <button class="pattern-btn" data-pattern="media-object">Media Object</button>
+                <button class="pattern-btn" data-pattern="sticky-footer">Sticky Footer</button>
+            </div>
+            <div class="flexbox-container holy-grail-pattern">
+                <div class="flex-header">Header</div>
+                <div class="flex-body">
+                    <div class="flex-sidebar">Sidebar</div>
+                    <div class="flex-main">Main Content Area</div>
+                    <div class="flex-aside">Aside</div>
+                </div>
+                <div class="flex-footer">Footer</div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

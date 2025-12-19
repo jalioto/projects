@@ -7,7 +7,7 @@ This is a collection of various projects I've created for fun, to follow my imag
 ```
 ├── Game-Tower_Defense/     # Tower defense game
 ├── bedtime-stories/        # AI story generator
-├── random_joke_generator/  # Kid-friendly joke generator (Python & Rust)
+├── random_joke_generator/  # Kid-friendly joke generator with animated background
 └── LICENSE                 # Repository license
 ```
 
@@ -20,11 +20,9 @@ A fun emoji-based tower defense game built with HTML5 Canvas and JavaScript, fea
 An AI-powered story generator that creates age-appropriate illustrated stories using Amazon Bedrock's Claude and Nova Canvas models with immersive full-screen reading experience.
 
 ### random_joke_generator
-A colorful, kid-friendly joke generator powered by Amazon Bedrock with Anthropic models. Available in two implementations:
-- **Python version** - Using Strands Agents SDK with Flask (port 8002)
-- **Rust version** - Using native AWS SDK with Axum (port 8003)
+A colorful, kid-friendly joke generator powered by Amazon Bedrock with Anthropic models. Built with Python using Strands Agents SDK and Flask, featuring a slowly changing gradient background that cycles through beautiful colors.
 
-Features clean, appropriate jokes for children aged 5-12 with animated interfaces, multiple joke categories, and safety-first content filtering.
+Features clean, appropriate jokes for children aged 5-12 with animated interfaces, multiple joke categories, floating emoji animations, and safety-first content filtering.
 
 ---
 

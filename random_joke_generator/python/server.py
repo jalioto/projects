@@ -10,8 +10,10 @@ import sys
 import logging
 
 # Configure logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger(__name__)
+# Reduce Werkzeug logging noise
+logging.getLogger('strands').setLevel(logging.WARNING)
 
 app = Flask(__name__)
 CORS(app)
@@ -126,7 +128,7 @@ if __name__ == '__main__':
     if initialize_agent():
         print("✅ Agent initialized successfully!")
         print("🚀 Server starting on http://localhost:8002") # Change port here: :XXXX
-        app.run(debug=True, host='0.0.0.0', port=8002)  # Change port here: port=XXXX
+        app.run(debug=False, host='0.0.0.0', port=8002)  # Change port here: port=XXXX
     else:
         print("❌ Failed to initialize agent. Please check your setup and try again.")
         sys.exit(1)
