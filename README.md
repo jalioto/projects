@@ -7,6 +7,7 @@ This is a collection of various projects I've created for fun, to follow my imag
 ```
 ├── Game-Tower_Defense/     # Tower defense game
 ├── Game-card_matching/     # Emoji memory matching game
+├── Game-tic_tac_toe/       # Professional themed tic-tac-toe game
 ├── bedtime-stories/        # AI story generator
 ├── cool_css_website/       # Modern CSS showcase website
 ├── random_joke_generator/  # Kid-friendly joke generator with animated background
@@ -26,7 +27,7 @@ Perfect for kids aged 5-12 with fair turn-based gameplay, score tracking, and no
 ### Game-tic_tac_toe
 A modern, professional tic-tac-toe game with three exciting themes (Animals 🐱🐶, Space 🚀👽, Cartoon 🤖🦄) and animated background effects. Features score tracking across multiple games, player-specific cell colors (blue for Player 1, green for Player 2), and glassmorphism design with floating geometric shapes.
 
-Built with pure HTML, CSS, and JavaScript using modern web technologies including backdrop blur effects, CSS animations, and responsive design. Perfect for all ages with tournament-style gameplay, smooth hover animations, and professional gaming aesthetics.
+Built with pure HTML, CSS, and JavaScript using modern web technologies including backdrop blur effects, CSS animations, and responsive design. Perfect for all ages with tournament-style gameplay, smooth hover animations, and professional gaming aesthetics. Can be played directly in browser or via included Python Flask server on port 8004.
 
 ### bedtime-stories
 An AI-powered story generator that creates age-appropriate illustrated stories using Amazon Bedrock's Claude and Nova Canvas models with immersive full-screen reading experience.
