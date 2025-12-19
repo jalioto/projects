@@ -23,6 +23,11 @@ A beautiful two-player emoji memory matching game featuring 8 adorable animal pa
 
 Perfect for kids aged 5-12 with fair turn-based gameplay, score tracking, and no bonus turns. Features CSS Houdini Paint API for dynamic star generation and can be played directly in browser or via included Python Flask server on port 8003.
 
+### Game-tic_tac_toe
+A modern, professional tic-tac-toe game with three exciting themes (Animals 🐱🐶, Space 🚀👽, Cartoon 🤖🦄) and animated background effects. Features score tracking across multiple games, player-specific cell colors (blue for Player 1, green for Player 2), and glassmorphism design with floating geometric shapes.
+
+Built with pure HTML, CSS, and JavaScript using modern web technologies including backdrop blur effects, CSS animations, and responsive design. Perfect for all ages with tournament-style gameplay, smooth hover animations, and professional gaming aesthetics.
+
 ### bedtime-stories
 An AI-powered story generator that creates age-appropriate illustrated stories using Amazon Bedrock's Claude and Nova Canvas models with immersive full-screen reading experience.
 
@@ -47,7 +52,7 @@ The following are ideas for future projects, ranging from interactive games to e
 - **Simple platformer** - Character jumps between platforms to collect items
 - **Whack-a-mole** - Click on popping characters for points
 - **Snake game** - Classic snake that grows as it eats food
-- **Tic-tac-toe with themes** - Animals, space, or cartoon characters instead of X's and O's
+- ✅ **Tic-tac-toe with themes** - Animals, space, or cartoon characters instead of X's and O's *(Completed!)*
 
 ### Creative Tools
 - **Digital coloring book** - Click to fill areas with different colors

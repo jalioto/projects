@@ -73,4 +73,27 @@ Works on all modern browsers including:
 - Mobile browsers (iOS Safari, Chrome Mobile)
 - Tablets and smartphones
 
+## 🚀 How to Run
+
+### Option 1: Direct Browser
 Just open `index.html` in any web browser to start playing!
+
+### Option 2: Local Server (Recommended)
+For the best experience, run the included Flask server:
+
+```bash
+# Quick start (requires Python 3)
+./start.sh
+
+# Or manually
+pip install -r requirements.txt
+python server.py
+```
+
+Then open http://localhost:8004 in your browser.
+
+### Server Features
+- Runs on port 8004 (won't conflict with other games)
+- Proper MIME types for all assets
+- Health check endpoint at `/health`
+- Hot reload during development
