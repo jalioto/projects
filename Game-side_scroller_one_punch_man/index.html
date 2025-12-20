@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Punch Man - Side Scroller</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        #gameContainer {
+            position: relative;
+            border: 4px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            background: #87CEEB;
+        }
+        
+        #gameCanvas {
+            display: block;
+            background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 100%);
+        }
+        
+        #ui {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            z-index: 10;
+        }
+        
+        #bossHealthBar {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 30px;
+            background: rgba(0,0,0,0.7);
+            border: 3px solid #fff;
+            border-radius: 15px;
+            display: none;
+            z-index: 10;
+        }
+        
+        #bossHealthFill {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff0000, #ff6600);
+            border-radius: 12px;
+            transition: width 0.5s ease;
+        }
+        
+        #bossName {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        #gameOver {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.9);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            display: none;
+            z-index: 20;
+        }
+        
+        #mainMenu {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 30;
+            color: white;
+            text-align: center;
+        }
+        
+        #mainMenu h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+            color: #FFD700;
+        }
+        
+        #mainMenu h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #FF6B6B;
+        }
+        
+        #citySelection {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .cityOption {
+            width: 150px;
+            height: 100px;
+            border: 3px solid transparent;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cityOption:hover {
+            border-color: #FFD700;
+            transform: scale(1.05);
+        }
+        
+        .cityOption.selected {
+            border-color: #FF6B6B;
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+        }
+        
+        .cityOption img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 7px;
+        }
+        
+        .cityOption .cityName {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        #startButton {
+            background: linear-gradient(45deg, #FF6B6B, #FFD700);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        #startButton:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+        
+        #startButton:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        #distanceSelection {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        
+        .distanceOption {
+            width: 120px;
+            height: 80px;
+            border: 3px solid transparent;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .distanceOption:hover {
+            border-color: #FFD700;
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .distanceOption.selected {
+            border-color: #FF6B6B;
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+            background: rgba(255, 107, 107, 0.2);
+        }
+        
+        .distanceLabel {
+            font-size: 16px;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 5px;
+        }
+        
+        .distanceValue {
+            font-size: 14px;
+            color: white;
+        }
+        
+        #restartBtn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+        
+        #restartBtn:hover {
+            background: #ff5252;
+        }
+        
+        #controls {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            font-size: 14px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        #musicToggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border: 2px solid white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="1000" height="600"></canvas>
+        
+        <div id="ui">
+            <div>Score: <span id="score">0</span></div>
+            <div>Distance: <span id="distance">0</span>m</div>
+        </div>
+        
+        <div id="bossHealthBar">
+            <div id="bossName">BOSS MONSTER</div>
+            <div id="bossHealthFill"></div>
+        </div>
+        
+        <div id="controls">
+            Click/F: Punch | Space: Jump
+        </div>
+        
+        <button id="musicToggle">🎵 Music: ON</button>
+        
+        <div id="mainMenu">
+            <h1>ONE PUNCH MAN</h1>
+            <h2>Side Scroller Game</h2>
+            
+            <h3>Select Your City:</h3>
+            <div id="citySelection">
+                <div class="cityOption" data-city="city.png">
+                    <img src="images/landscapes/city.png" alt="City 1">
+                    <div class="cityName">Metro City</div>
+                </div>
+                <div class="cityOption" data-city="city1.png">
+                    <img src="images/landscapes/city1.png" alt="City 2">
+                    <div class="cityName">Neo Tokyo</div>
+                </div>
+                <div class="cityOption" data-city="city2.png">
+                    <img src="images/landscapes/city2.png" alt="City 3">
+                    <div class="cityName">Cyber City</div>
+                </div>
+                <div class="cityOption" data-city="city3.png">
+                    <img src="images/landscapes/city3.png" alt="City 4">
+                    <div class="cityName">Sky City</div>
+                </div>
+                <div class="cityOption" data-city="city4.png">
+                    <img src="images/landscapes/city4.png" alt="City 5">
+                    <div class="cityName">Future City</div>
+                </div>
+                <div class="cityOption" data-city="city5.png">
+                    <img src="images/landscapes/city5.png" alt="City 6">
+                    <div class="cityName">Hero City</div>
+                </div>
+            </div>
+            
+            <h3>Select Distance:</h3>
+            <div id="distanceSelection">
+                <div class="distanceOption" data-distance="500">
+                    <div class="distanceLabel">SHORT</div>
+                    <div class="distanceValue">500m</div>
+                </div>
+                <div class="distanceOption" data-distance="1500">
+                    <div class="distanceLabel">MEDIUM</div>
+                    <div class="distanceValue">1500m</div>
+                </div>
+                <div class="distanceOption" data-distance="3000">
+                    <div class="distanceLabel">LONG</div>
+                    <div class="distanceValue">3000m</div>
+                </div>
+            </div>
+            
+            <button id="startButton" disabled>START GAME</button>
+        </div>
+        
+        <div id="gameOver">
+            <h2>Game Complete!</h2>
+            <p>Saitama has defeated all monsters!</p>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <button id="restartBtn">Play Again</button>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>

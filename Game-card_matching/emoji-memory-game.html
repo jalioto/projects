@@ -614,12 +614,15 @@
                 card1.matched = true;
                 card2.matched = true;
                 
+                // Store current player before switching
+                const matchingPlayer = gameState.currentPlayer;
+                
                 // Add to current player's score
-                gameState.scores[gameState.currentPlayer - 1]++;
+                gameState.scores[matchingPlayer - 1]++;
                 
                 // Move cards to player's pile
                 setTimeout(() => {
-                    moveCardsToPlayerPile(card1.emoji, gameState.currentPlayer);
+                    moveCardsToPlayerPile(card1.emoji, matchingPlayer);
                     
                     const card1Element = document.querySelector(`[data-card-id="${card1Id}"]`);
                     const card2Element = document.querySelector(`[data-card-id="${card2Id}"]`);
