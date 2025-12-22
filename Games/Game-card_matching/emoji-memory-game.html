@@ -388,11 +388,18 @@
         <div class="controls">
             <button class="btn" onclick="newGame()">🎯 New Game</button>
             <button class="btn" onclick="resetGame()">🔄 Reset</button>
+            <button class="btn" id="musicToggle" onclick="toggleMusic()">🎵 Music: ON</button>
         </div>
     </div>
 
     <div class="overlay" id="overlay"></div>
     <div class="win-message" id="winMessage"></div>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop preload="auto">
+        <source src="audio/background_music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
     <script>
         // Register CSS Paint API worklet for starry space background
@@ -513,6 +520,42 @@
             turnInProgress: false
         };
 
+        // Background music
+        let backgroundMusic = null;
+
+        // Initialize background music
+        function initBackgroundMusic() {
+            backgroundMusic = document.getElementById('backgroundMusic');
+            if (backgroundMusic) {
+                backgroundMusic.volume = 0.3; // Set to 30% volume
+                
+                // Handle audio loading errors
+                backgroundMusic.addEventListener('error', (e) => {
+                    console.log('Background music failed to load:', e);
+                });
+                
+                // Try to start music immediately (may be blocked by browser)
+                startBackgroundMusic();
+            }
+        }
+
+        // Start background music
+        function startBackgroundMusic() {
+            if (backgroundMusic) {
+                backgroundMusic.play().catch(e => {
+                    console.log('Autoplay blocked. Music will start on first user interaction.');
+                    // Add click listener to start music on first user interaction
+                    document.addEventListener('click', function startMusicOnClick() {
+                        backgroundMusic.play().catch(err => {
+                            console.log('Could not play background music:', err);
+                        });
+                        // Remove the listener after first click
+                        document.removeEventListener('click', startMusicOnClick);
+                    }, { once: true });
+                });
+            }
+        }
+
         // Emoji pairs for the game
         const emojis = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼'];
         
@@ -521,6 +564,7 @@
             createCards();
             updateDisplay();
             setupThemeSelector();
+            initBackgroundMusic();
         }
 
         // Create and shuffle cards
@@ -804,6 +848,23 @@
                     document.body.className = theme === 'default' ? '' : `theme-${theme}`;
                 });
             });
+        }
+
+        // Toggle background music
+        function toggleMusic() {
+            const musicToggle = document.getElementById('musicToggle');
+            
+            if (backgroundMusic) {
+                if (backgroundMusic.paused) {
+                    backgroundMusic.play().catch(e => {
+                        console.log('Could not play background music:', e);
+                    });
+                    musicToggle.textContent = '🎵 Music: ON';
+                } else {
+                    backgroundMusic.pause();
+                    musicToggle.textContent = '🔇 Music: OFF';
+                }
+            }
         }
 
         // Initialize game when page loads

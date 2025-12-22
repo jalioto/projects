@@ -5,14 +5,18 @@ This is a collection of various projects I've created for fun, to follow my imag
 ## Project Structure
 
 ```
-├── Game-Tower_Defense/         # Tower defense game
-├── Game-card_matching/         # Emoji memory matching game
-├── Game-tic_tac_toe/           # Professional themed tic-tac-toe game
-├── Game-side_scroller_one_punch_man/  # One Punch Man side-scrolling action game
-├── bedtime-stories/            # AI story generator
-├── cool_css_website/           # Modern CSS showcase website
-├── random_joke_generator/      # Kid-friendly joke generator with animated background
-└── LICENSE                     # Repository license
+├── Games/
+│   ├── Game-Tower_Defense/         # Tower defense game
+│   ├── Game-card_matching/         # Emoji memory matching game
+│   ├── Game-connect_four/          # Classic Connect Four strategy game
+│   ├── Game-tic_tac_toe/           # Professional themed tic-tac-toe game
+│   ├── Game-side_scroller_one_punch_man/  # One Punch Man side-scrolling action game
+│   ├── Game-snake_game/            # Modern snake game
+│   └── Game_launcher/              # Master game launcher and selector
+├── bedtime-stories/                # AI story generator
+├── cool_css_website/               # Modern CSS showcase website
+├── random_joke_generator/          # Kid-friendly joke generator with animated background
+└── LICENSE                         # Repository license
 ```
 
 ## Projects
@@ -30,7 +34,31 @@ A modern, professional tic-tac-toe game with three exciting themes (Animals 🐱
 
 Built with pure HTML, CSS, and JavaScript using modern web technologies including backdrop blur effects, CSS animations, and responsive design. Perfect for all ages with tournament-style gameplay, smooth hover animations, and professional gaming aesthetics. Can be played directly in browser or via included Python Flask server on port 8004.
 
+### Game-connect_four
+A modern, responsive Connect Four game featuring smooth animations, two-player gameplay, and persistent score tracking. Players take turns dropping red and yellow pieces into a 7x6 grid, aiming to connect four pieces horizontally, vertically, or diagonally.
+
+**Key Features:**
+- **Classic Gameplay**: Traditional Connect Four rules with intuitive click-to-drop mechanics
+- **Visual Feedback**: Column hover previews and smooth piece-dropping animations
+- **Win Detection**: Automatic detection of 4-in-a-row connections in all directions
+- **Score Persistence**: Tracks wins between rounds using localStorage
+- **Responsive Design**: Mobile-friendly interface with touch support
+- **Celebration Effects**: Winning pieces highlighted with pulsing animations and particle effects
+- **Game Reset**: Start new rounds while maintaining score history
+
+Built with vanilla HTML5, CSS3, and JavaScript featuring a beautiful blue game board design, gradient backgrounds, and smooth 60fps animations. Perfect for family game nights with immediate visual feedback and satisfying gameplay mechanics.
+
 ### Game-side_scroller_one_punch_man
+A comprehensive game launcher system that hosts and manages all games in the arcade. Features a beautiful game selector interface and automatic server management for all games.
+
+**Features:**
+- **Master Server**: Centralized launcher on port 8000 with game selector interface
+- **Auto-Start**: Automatically launches all game servers on their designated ports
+- **Health Monitoring**: Built-in health checks for all game services
+- **Responsive Grid**: Beautiful card-based game selection with hover effects
+- **Server Controls**: Start/stop all servers with management interface
+
+Integrates all games into a unified arcade experience with consistent theming and seamless navigation between games.
 An epic 2D side-scrolling action game based on the popular anime "One Punch Man" where you play as Saitama, the hero who defeats any enemy with just one punch! Features authentic character sprites, multiple city backgrounds, and spectacular boss battles.
 
 **Key Features:**
@@ -67,9 +95,10 @@ The following are ideas for future projects, ranging from interactive games to e
 ### Interactive Games
 - ✅ **Memory matching game** - Click cards to find pairs with colorful images or emojis *(Completed!)*
 - ✅ **Side-scrolling action game** - One Punch Man inspired game with epic boss battles *(Completed!)*
+- ✅ **Connect Four** - Classic two-player strategy game with smooth animations *(Completed!)*
 - **Simple platformer** - Character jumps between platforms to collect items
 - **Whack-a-mole** - Click on popping characters for points
-- **Snake game** - Classic snake that grows as it eats food
+- ✅ **Snake game** - Classic snake that grows as it eats food *(Completed!)*
 - ✅ **Tic-tac-toe with themes** - Animals, space, or cartoon characters instead of X's and O's *(Completed!)*
 
 ### Creative Tools
